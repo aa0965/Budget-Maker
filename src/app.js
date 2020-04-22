@@ -6,12 +6,9 @@ import './styles/styles.scss';
 import storeConfig from './store/store'
 import {addExpense} from './actions/expenses'
 import {setTextField} from './actions/filters'
-
+import './firebase/firebase'
 const store = storeConfig();
 
-store.dispatch(addExpense({description : 'gas bill', amount:800, note: 'pay to get gas', createAt:800}))
-store.dispatch(addExpense({description : 'water bill', amount:1000, note: 'pay to get water', createAt:1800}))
-store.dispatch(addExpense({description : 'school fees', amount:2800, note: 'pay to get education', createAt:1200}))
 
 
 console.log(store.getState())
