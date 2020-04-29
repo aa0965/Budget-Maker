@@ -9,7 +9,7 @@ const EditExpense = (props) => {
     props.history.push('/')
   }
   return (
-  <div>
+  <div className='edit'>
     <div className='page-header'>
       <div className='content-container'>
           <h1 className='page-header__title'>Edit Expense</h1>

@@ -88,7 +88,7 @@ constructor(props){
              value={this.state.note}
              onChange = {this.onNoteChange}>
           </textarea>
-          <div>  <button  className='button'>Save Expense</button></div>
+          <div >  <button  className='button'>Save Expense</button></div>
 
       </form>
 

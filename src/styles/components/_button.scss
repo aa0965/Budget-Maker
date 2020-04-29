@@ -30,9 +30,15 @@
 }
 .remove-button {
   background-color: #888888;
+  border: 0;
+  margin-bottom: $s-size;
+  @media (min-width: $desktop-breakpoint) {
+    margin-bottom: $m-size;
+  }
+
 }
 .remove-button:hover {
+background-color: #888888; /* Green */
+color:white;
 
-  color:white;
-  border: .1rem solid black;
 }
