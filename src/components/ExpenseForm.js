@@ -52,10 +52,11 @@ constructor(props){
 
   render (){
     return (
-      <div>
-        {this.state.error && <p>{this.state.error}</p>}
-        <form onSubmit={this.submitHandler}>
+
+        <form className ='form' onSubmit={this.submitHandler}>
+           {this.state.error && <p className='form__error'>{this.state.error}</p>}
            <input
+             className='text-input'
              placeholder='description'
              type='text'
              autoFocus
@@ -63,6 +64,7 @@ constructor(props){
              onChange = {this.onDescriptionChange}
            />
          <input
+             className='text-input'
              placeholder='amount'
              type='number'
              autoFocus
@@ -78,17 +80,18 @@ constructor(props){
                 isOutsideRange = {()=>false}
              />
 
-          <textarea placeholder='note'
-            autoFocus
-            type='text'
+          <textarea
+             className='textarea'
+             placeholder='note'
+             autoFocus
+             type='text'
              value={this.state.note}
              onChange = {this.onNoteChange}>
-
           </textarea>
-        <button >Add Expense</button>
+          <div>  <button  className='button'>Save Expense</button></div>
+
       </form>
 
-      </div>
     )
   }
 }

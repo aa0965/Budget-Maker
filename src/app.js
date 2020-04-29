@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux'
 import AppRouter,{history} from './routers/AppRouter'
+import 'normalize.css/normalize.css'
 import './styles/styles.scss';
 import storeConfig from './store/store'
 import {addExpense} from './actions/expenses'
@@ -9,6 +10,7 @@ import {startSetExpense} from './actions/expenses'
 import {setTextField} from './actions/filters'
 import {loginId, logoutId} from './actions/login'
 import {firebase } from './firebase/firebase'
+import LoadingPage from './components/LoadingPage';
 
 const store = storeConfig();
 
@@ -27,13 +29,13 @@ const jsx = (
     <AppRouter />
   </Provider>
 )
-  ReactDOM.render(<p>Loading...</p>, document.getElementById('app'));
+  ReactDOM.render(<LoadingPage />, document.getElementById('app'));
 
 
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
-  
+
     store.dispatch(loginId(user.uid));
     store.dispatch(startSetExpense()).then(() => {
       renderApp();
@@ -42,9 +44,9 @@ firebase.auth().onAuthStateChanged(function(user) {
 
   }else{
     store.dispatch(logoutId());
-    store.dispatch(startSetExpense()).then(() => {
+
       renderApp();
-    })
+
     history.push('/');
   }
 });

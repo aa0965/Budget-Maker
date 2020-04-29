@@ -7,12 +7,16 @@ const ExpenseListItems = (props) => {
 
 
   return (
-  <div>
-    <strong><NavLink to={`/edit/${props.id}`}>{props.description}</NavLink></strong>
-  <p>{numeral(props.amount).format('$0,0')}
-     -
-     {moment(props.createAt).format('Do MMM ,YYYY')}</p>
-  </div>
+
+    <NavLink className='list-item' to={`/edit/${props.id}`}>
+      <div>
+        <h3 className='list-item__title'> {props.description} </h3>
+        <span className='list-item__subtitle'>  {moment(props.createAt).format('Do MMM ,YYYY')}</span>
+      </div>
+      <h3 className='list-item__data'>  {numeral(props.amount).format('$0,0')}</h3>
+
+   </NavLink>
+
 )}
 
 

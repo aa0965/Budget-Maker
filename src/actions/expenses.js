@@ -21,12 +21,14 @@ export const  startAddExpense= (expenseData = {}) => {
         id:ref.key,
         ...expense
       }))
+    }).catch((e) => {
+      console.log(e)
     })
   }
 }
 
 
-export const editExpense = (id,{description ,note , amount, createAt}) => ({
+export const editExpense = (id,update) => ({
   type: 'EDIT_EXPENSE',
   id,
   update
@@ -35,14 +37,14 @@ export const editExpense = (id,{description ,note , amount, createAt}) => ({
 export const  startEditExpense= (id,expenseData) => {
   return (dispatch,getState) => {
     const uid = getState().auth.uid;
-
+    const {description = '' ,note ='', amount=0, createAt=0} = expenseData;
+    const expense = {description ,note, amount, createAt};
+    
     database.ref(`users/${uid}/expenses/${id}`).update(expenseData).then(()=>{
-      dispatch(editExpense({
-        id,
+      dispatch(editExpense(id,{
+        id:id,
         ...expense
       }))
-    }).catch((e) => {
-      console.log(e)
     })
 
 

@@ -1,0 +1,38 @@
+.button {
+  color: white;
+  text-align: center;
+  background-color: #008CBA;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 2rem;
+  border: .1rem solid #008CBA;
+  line-height: 1;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  padding: 1rem;
+
+}
+.button:hover {
+  background-color: white; /* Green */
+  color: #555555;
+
+}
+
+.button--link {
+  background: none;
+  border: 0;
+  transition-duration: 0.1s;
+}
+.button--link:hover {
+  background-color: $dark-blue; /* Green */
+  color:white;
+  border: .1rem solid white;
+}
+.remove-button {
+  background-color: #888888;
+}
+.remove-button:hover {
+
+  color:white;
+  border: .1rem solid black;
+}

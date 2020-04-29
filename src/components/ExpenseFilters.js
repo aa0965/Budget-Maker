@@ -16,29 +16,39 @@ class ExpenseFilters extends React.Component {
     else if(e.target.value === 'amount') this.props.dispatch(sortByAmount())
   }
   onDateChange = ({ startDate, endDate }) => {
-    
+
     this.props.dispatch(setStartDate(startDate));
     this.props.dispatch(setEndDate(endDate));
   }
   render(){
     return (
-      <div>
-        <input type='text' value={this.props.filters.text} onChange={this.changeHandler}/>
-      <select value='date' onChange={this.sortHandler}>
-          <option value='date'>date</option>
-        <option value='amount'>amount</option>
-        </select>
-        <DateRangePicker
-    startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
+      <div className='content-container'>
+        <div className='input-group'>
+          <div className='input-group-item'>
+            <input className='text-input' type='text' value={this.props.filters.text} placeholder='search expenses' onChange={this.changeHandler}/>
+          </div>
+          <div className='input-group-item'>
+            <select className='select' value={this.props.filters.sortBy} onChange={this.sortHandler}>
+              <option value='date'>date</option>
+              <option value='amount'>amount</option>
+            </select>
+          </div >
+          <div className='input-group-item'>
+            <DateRangePicker
+              startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
+              endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
+              numberOfMonths={1}
+              isOutsideRange = {()=>false}
+              showClearDates={true}
+              onDatesChange={this.onDateChange} // PropTypes.func.isRequired,
+              focusedInput={this.state.focused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+              onFocusChange={focused => this.setState({ focused })} // PropTypes.func.isRequired,
+              />
+          </div>
+        </div>
 
-    endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
-    numberOfMonths={1}
-    isOutsideRange = {()=>false}
-    showClearDates={true}
-    onDatesChange={this.onDateChange} // PropTypes.func.isRequired,
-    focusedInput={this.state.focused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-    onFocusChange={focused => this.setState({ focused })} // PropTypes.func.isRequired,
-  />
+
+
       </div>
     )
   }

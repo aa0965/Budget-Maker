@@ -6,8 +6,13 @@ const Login = (props) => {
     props.startLogin();
   }
   return(
-    <div>
-      <button onClick={loginHandler}>Login</button>
+    <div className='box-layout'>
+      <div className='box-layout__box'>
+        <h1 className='box-layout__title'>Budget Maker</h1>
+        <p>Its time to get your budget done</p>
+
+        <button className='button' onClick={loginHandler}>Login with Google</button>
+      </div>
     </div>
   )
 }
