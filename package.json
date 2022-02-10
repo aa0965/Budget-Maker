@@ -47,7 +47,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
     "dotenv": "^8.2.0",
     "live-server": "^1.2.0",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "webpack-dev-server": "2.5.1"
   }
 }
